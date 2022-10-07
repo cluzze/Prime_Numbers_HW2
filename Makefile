@@ -1,5 +1,5 @@
 CC?=gcc
-CFLAGS?=-g -Wall -Wextra
+CFLAGS?=-g -Wall -Wextra -O2
 
 SRC=src
 OBJ=obj
