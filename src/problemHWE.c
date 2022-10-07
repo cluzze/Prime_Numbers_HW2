@@ -33,7 +33,7 @@ int main()
 	struct sieve_t sieve;
 	//scanf("%lld", &n);
 	
-	n = 10000;
+	n = 100000;
 
 	init_sieve(&sieve, n);
 	fill_sieve(&sieve);
@@ -45,26 +45,26 @@ int main()
 		{
 			printf("Failed %d: expected: %lld, got: %lld\n", i, expect[i], nprime);
 		}
-	}*/
-
-		/*start = clock();
-		for (i = 6; i < sieve.n; i += 6)
-		{
-			if (rabin_miller(i - 1) != is_prime(&sieve, i - 1))
-			{
-				printf("Failed on %lld, rabin_miller: %d, is_prime: %d\n", i - 1, rabin_miller(i - 1), is_prime(&sieve, i - 1));
-			}
-
-
-			if (rabin_miller(i + 1) != is_prime(&sieve, i + 1))
-			{
-				printf("Failed on %lld, rabin_miller: %d, is_prime: %d\n", i + 1, rabin_miller(i + 1), is_prime(&sieve, i + 1));
-			}
-		}
-		end = clock();
-		cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-		printf("testing through sieve: %g sec\n", cpu_time_used);
+	}
 */
+	start = clock();
+	for (i = 6; i < sieve.n; i += 6)
+	{
+		if (rabin_miller(i - 1) != is_prime(&sieve, i - 1))
+		{
+			printf("Failed on %lld, rabin_miller: %d, is_prime: %d\n", i - 1, rabin_miller(i - 1), is_prime(&sieve, i - 1));
+		}
+
+
+		if (rabin_miller(i + 1) != is_prime(&sieve, i + 1))
+		{
+			printf("Failed on %lld, rabin_miller: %d, is_prime: %d\n", i + 1, rabin_miller(i + 1), is_prime(&sieve, i + 1));
+		}
+	}
+	end = clock();
+	cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+	printf("testing through sieve: %g sec\n", cpu_time_used);
+
 	start = clock();
 	for (i = BIL + 1; i < 1000 * BIL; i += BIL)
 	{
